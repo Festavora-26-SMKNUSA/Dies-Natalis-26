@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="LOGO.png">
+    <title>FESTAVORA - Dies Natalis SMKN 1 Purwosari ke-26</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Skema Warna: Biru Tua/Navy (#001f3f) & Emas (#FFD700) */
+        :root {
+            --color-primary: #001f3f; /* Biru Tua / Navy */
+            --color-secondary: rgba(252, 215, 7, 0.973); /* Emas Terang */
+            --color-accent: #C9A800; /* Emas Gelap */
+            --color-light-blue: #3399FF; /* Biru Cerah */
+            --color-background-light: #f4f4f9;
+            --color-text-dark: #333;
+            --color-text-light: #ffffff;
+        }
+
+        /* Pengaturan Dasar */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--color-background-light);
+            color: var(--color-text-dark);
+            scroll-behavior: smooth;
+        }
+
+        /* Header & Navigasi */
+        header {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            padding: 15px 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        /* --- CSS BARU UNTUK LOGO ATAS (SEKOLAH & OSIS) --- */
+        .header-logos {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* Jarak antar logo dan teks FESTAVORA */
+            justify-content: flex-start; /* Logo rata kiri */
+        }
+        
+        .header-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-logo-container .logo-placeholder,
+        .logo-end .logo-placeholder {
+            width: 40px; /* Ukuran Logo */
+            height: 40px;
+            background-color: var(--color-secondary); /* Warna emas sebagai placeholder */
+            border-radius: 50%; /* Bulat untuk kesan logo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.6em;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        
+        .logo-end {
+            /* Untuk menempatkan logo OSIS di ujung kanan saat mode desktop */
+            margin-left: auto;
+            display: flex; 
+            align-items: center;
+        }
+        
+        /* --- AKHIR CSS BARU --- */
+
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--color-secondary);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            transition: all 0.3s ease; 
+        }
+
+        nav ul li a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            margin-left: 25px;
+            padding: 5px 10px;
+            transition: color 0.3s, border-bottom 0.3s;
+            font-weight: 700;
+        }
+
+        nav ul li a:hover {
+            color: var(--color-secondary);
+            border-bottom: 2px solid var(--color-secondary);
+        }
+        
+        /* CSS KHUSUS HAMBURGER MENU / RESPONSIVE */
+        .hamburger {
+            display: none; 
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            z-index: 1001;
+            margin-left: 15px; /* Memberi sedikit jarak dari logo */
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--color-secondary);
+            border-radius: 3px;
+            transition: all 0.3s linear;
+            transform-origin: 1px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+
+        /* Bagian Umum */
+        section {
+            padding: 100px 50px;
+            text-align: center;
+            min-height: 80vh;
+        }
+
+        /* HERO SECTION DENGAN BACKGROUND LUAR ANGKASA */
+        .hero {
+            background: 
+                linear-gradient(rgba(0, 31, 63, 0.7), rgba(0, 31, 63, 0.9)), 
+                url('https://i.pinimg.com/736x/43/df/ee/43dfeea25b4e2c0bad4b41f077a8340b.jpg') no-repeat center center; 
+            background-size: cover;
+            background-attachment: fixed; 
+            color: var(--color-text-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 150px;
+            min-height: 100vh;
+        }
+
+        .hero .content h1 {
+            font-size: 4.5em; 
+            margin-bottom: 10px;
+            color: var(--color-secondary);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5); 
+        }
+
+        .hero .content p {
+            font-size: 1.6em;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 900;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+
+        /* Grid Lomba */
+        #lomba {
+            background-color: var(--color-background-light);
+        }
+        
+        #lomba h2 {
+            color: var(--color-primary);
+        }
+
+        /* Perbaikan Grid Lomba agar tidak mepet */
+        .lomba-grid {
+            display: flex;
+            justify-content: center; /* Mengatur item ke tengah */
+            flex-wrap: wrap;
+            margin-top: 40px;
+            gap: 30px; /* Menambah jarak antar kotak lomba secara konsisten */
+        }
+
+        .lomba-item-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            /* Ukuran kotak: 30% di desktop, min 280px agar tidak terlalu kecil */
+            width: 30%; 
+            min-width: 280px; 
+            transition: transform 0.3s ease;
+        }
+        
+        .lomba-item {
+            background-color: var(--color-text-light);
+            padding: 35px 25px; /* Memberi ruang di dalam kotak */
+            border-radius: 20px;
+            border: 1px solid var(--color-light-blue);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        /* Efek saat kursor menyentuh kotak */
+        .lomba-item-link:hover .lomba-item {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            background-color: #f0faff; /* Berubah warna sedikit saat di-hover */
+            border-color: var(--color-secondary);
+        }
+
+        /* Bagian Pendaftaran */
+        #pendaftaran {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+        }
+
+        /* Bagian Kontak */
+        #kontak {
+            background-color: #e0f7fa;
+        }
+        
+        #kontak h2 {
+            color: var(--color-primary);
+        }
+
+        .contact-info {
+            text-align: left;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: var(--color-text-light);
+            border-left: 5px solid var(--color-secondary);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info ul li strong {
+            color: var(--color-primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-primary);
+            color: var(--color-text-light);
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        
+   
+        .sponsor-area {
+            margin-top: 20px;
+            padding-bottom: 20px;
+            border-top: 1px solid #336699;
+            padding-top: 20px;
+        }
+        
+        .sponsor-area h4 {
+            color: var(--color-secondary);
+            font-weight: 700;
+        }
+
+        .sponsor-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 15px;
+        }
+
+        .sponsor-logos div {
+            width: 100px;
+            height: 60px;
+            background-color: #336699;
+            border: 2px solid var(--color-secondary);
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7em;
+            color: var(--color-text-light);
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .sponsor-logos div:hover {
+            opacity: 1;
+        }
+
+        .animate-text { opacity: 0; animation: fadeInDown 1s ease-out forwards; }
+        .animate-text:nth-child(1) { animation-delay: 0.5s; }
+        .animate-text:nth-child(2) { animation-delay: 1s; }
+        .animate-text:nth-child(3) { animation-delay: 1.5s; }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in, .slide-up, .slide-right, .scale-in {
+            opacity: 0;
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .fade-in.animated { opacity: 1; }
+        .slide-up { transform: translateY(50px); }
+        .slide-up.animated { opacity: 1; transform: translateY(0); }
+        .slide-right { transform: translateX(-50px); }
+        .slide-right.animated { opacity: 1; transform: translateX(0); }
+        .scale-in { transform: scale(0.8); }
+        .scale-in.animated { opacity: 1; transform: scale(1); }
+
+        .lomba-grid .lomba-item-link:nth-child(1) .slide-up.animated { transition-delay: 0.2s; }
+        .lomba-grid .lomba-item-link:nth-child(2) .slide-up.animated { transition-delay: 0.4s; }
+        .lomba-grid .lomba-item-link:nth-child(3) .slide-up.animated { transition-delay: 0.6s; }
+
+        /* Media Queries untuk Responsif */
+        @media (max-width: 768px) {
+            header { 
+                padding: 15px 20px; 
+            }
+            
+            nav {
+                flex-wrap: wrap; 
+            }
+            
+            /* Tampilkan Hamburger */
+            .hamburger { 
+                display: flex; 
+            }
+            
+            /* Penyesuaian Logo di Mobile */
+            .header-logos {
+                width: 70%; /* Agar tidak terlalu lebar */
+                justify-content: flex-start;
+                margin-bottom: 0;
+            }
+            
+            .header-logo-container {
+                gap: 5px;
+            }
+            
+            .header-logo-container .logo-placeholder,
+            .logo-end .logo-placeholder {
+                width: 30px; 
+                height: 30px; 
+            }
+            
+            .logo-end {
+                display: none; /* Sembunyikan Logo OSIS di mobile agar tidak terlalu penuh */
+            }
+            
+            /* Sembunyikan dan ubah Navigasi menjadi kolom saat di mobile */
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                background-color: var(--color-primary); 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                position: absolute; 
+                top: 60px; 
+                left: 0;
+                padding-bottom: 10px;
+            }
+
+            /* Tampilkan menu saat active */
+            nav ul.active {
+                display: flex; 
+            }
+
+            nav ul li {
+                margin: 0;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            nav ul li:first-child {
+                border-top: none;
+            }
+
+            nav ul li a {
+                display: block;
+                margin: 0;
+                padding: 15px 0;
+            }
+            
+            .hero .content h1 { font-size: 2.5em; }
+            section { padding: 80px 20px; }
+            .lomba-item-link { width: 90%; }
+            .sponsor-logos { gap: 20px; }
+            .sponsor-logos div { width: 80px; height: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="header-logos">
+                <div class="header-logo-container">
+                    <img src="genlord.png" alt="Logo SMKN 1 Purwosari" class="logo-placeholder">
+                    <div class="logo">FESTAVORA</div>
+                </div>
+            </div>
+            
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+    
+            <ul id="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#lomba">Lomba</a></li>
+                <li><a href="#pendaftaran">Daftar</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+                <li class="logo-end">
+                    <div class="logo-placeholder">OSIS</div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="content">
+            <h1 class="animate-text">DIES NATALIS SMKN 1 PURWOSARI 26TH</h1>
+            <p class="animate-text">"FLAVORS AND CREATION OF SMKNUSA"</p>
+            <a href="#pendaftaran" class="cta-button animate-text">Daftar Lomba Sekarang!</a>
+        </div>
+        
+    </section>
+
+    <section id="lomba" class="fade-in">
+        <h2>Jenis Perlombaan</h2>
+        <p>Klik kotak lomba untuk melihat detail dan teknis pendaftaran.</p>
+        
+        <div class="lomba-grid">
+            
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSenoO9Y5k4KOpAwR6HIqTn2QlLG7cfxnVTPXpd80MWgYHvYLg/viewform?usp=dialog" class="lomba-item-link">
+                <div class="lomba-item slide-up">
+                    <h3>Lomba Debat SMA/SMK/MA</h3>
+                    <p>“Young Minds, Strong Arguments.” </p>
+                </div>
+            </a>
+            
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeOeX37mHzuQzMUusSYCPNzLyiE3drsraGW9RcYboEo3M_0fw/viewform?usp=publish-editor" class="lomba-item-link">
+                <div class="lomba-item slide-up">
+                    <h3>Lomba Cerdas Cermat SMP/MTS</h3>
+                    <p>“Believe in knowledge, achieve greatness.”</p>
+                </div>
+            </a>
+
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdB1Y8foIQhibFxOX1gWIMHOJp-6QUpz3Y5KdwUVfvtauKGmg/viewform?usp=dialog" class="lomba-item-link">
+                <div class="lomba-item slide-up">
+                    <h3>Volly Ball SMP/MTS</h3>
+                    <p>“One team. One goal. One victory.”</p>
+                </div>
+            </a>
+
+    
+        </div>
+    </section>
+            </div>
+    </section>
+
+    <section id="pendaftaran" class="fade-in">
+        <h2>Petunjuk Teknis Perlombaan</h2>
+        <p>Klik tombol di bawah untuk melihat teknis perlombaan dan teknis pendaftaran</p>
+        <a href="https://drive.google.com/drive/folders/1dU0EobCCq2ppAB-zgPm8eWxjiNZC0xc0?usp=sharing" class="cta-button scale-in" target="_blank">Petunjuk Teknis</a>
+    </section>
+
+    <section id="kontak" class="fade-in">
+        <h2>?? Hubungi Kami</h2>
+        <div class="contact-info slide-right">
+            <h3>Contact Person Lomba</h3>
+            <p>Untuk informasi lebih lanjut mengenai teknis lomba:</p>
+            <ul>
+                <li>Debat SMA/MA/SMK: Aqila Zidane N.A (+62 858 0830 0858)</li>
+                <li>Cerdas Cermat SMP/MTS: Fairuz Shafa Azzahra (+62 822 3115 0319 )</li>
+                <li>Volly Ball SMP/MTS: Azhar Reihan Hesyaputra (+62 821 4338 8848)</li>
+                <li>Informasi Umum: Maulidya Nirmala K. (+62 813 1075 3084)</li>
+            </ul>
+            <p>Atau kirim email ke: cloud.genlord@gmail.com</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="sponsor-area">
+            <h4>Didukung Oleh Mitra Kami:</h4>
+            <div class="sponsor-logos">
+                <div>Logo Sponsor 1</div>
+                <div>Logo Sponsor 2</div>
+                <div>Logo Sponsor 3</div>
+                <div>Logo Sponsor 1</div>
+                <div>Logo Sponsor 2</div>
+                <div>Logo Sponsor 3</div>
+            </div>
+        </div>
+        
+        <p>&copy; 2026 FESTAVORA - Panitia Dies Natalis ke-26 SMKN 1 Purwosari</p>
+    </footer>
+
+    <script>
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            const hamburger = document.querySelector('.hamburger');
+            
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.getElementById('nav-links');
+            const hamburger = document.querySelector('.hamburger');
+            
+            // Menutup menu saat link navigasi diklik (di mode mobile)
+            document.querySelectorAll('#nav-links a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        navLinks.classList.remove('active');
+                        hamburger.classList.remove('active');
+                    }
+                });
+            });
+
+            // Fungsi untuk mengecek apakah elemen ada di viewport (untuk animasi)
+            const isElementInViewport = (el) => {
+                const rect = el.getBoundingClientRect();
+                const offset = 100; 
+                return (
+                    rect.top <= (window.innerHeight - offset) &&
+                    rect.bottom >= 0 + offset
+                );
+            };
+
+            // Fungsi untuk menambahkan kelas 'animated' jika elemen sudah terlihat
+            const checkAndAnimate = () => {
+                const elementsToAnimate = document.querySelectorAll('.fade-in, .slide-up, .slide-right, .scale-in');
+                
+                elementsToAnimate.forEach(el => {
+                    if (isElementInViewport(el)) {
+                        el.classList.add('animated');
+                    }
+                });
+            };
+
+            // Panggil saat halaman dimuat
+            checkAndAnimate();
+
+            // Panggil saat terjadi scroll
+            window.addEventListener('scroll', checkAndAnimate);
+            
+            
+            /* Fitur Scroll ke CP saat item lomba diklik (Smooth Scroll) */
+            document.querySelectorAll('.lomba-item-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        e.preventDefault(); 
+                        
+                        // Scroll ke elemen kontak
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80, 
+                            behavior: 'smooth'
+                        });
+                        
+                        // Efek highlight singkat pada bagian kontak saat diklik
+                        targetElement.style.transition = 'background-color 0.5s';
+                        targetElement.style.backgroundColor = '#fff3e0'; // Warna highlight (Kuning/Emas muda)
+                        setTimeout(() => {
+                            targetElement.style.backgroundColor = '#e0f7fa'; // Kembali ke warna semula
+                        }, 1500);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
