@@ -360,6 +360,74 @@
         .lomba-grid .lomba-item-link:nth-child(2) .slide-up.animated { transition-delay: 0.4s; }
         .lomba-grid .lomba-item-link:nth-child(3) .slide-up.animated { transition-delay: 0.6s; }
 
+        .flyer-section{
+    padding:90px 12%;
+    text-align:center;
+    background:#f9f9f9;
+}
+
+.flyer-section h2{
+    color:#ff7a00;
+    margin-bottom:30px;
+}
+
+/* Flyer Card */
+.flyer-box{
+    display:flex;
+    justify-content:center;
+}
+
+.flyer-box img{
+    width:280px;
+    aspect-ratio: 3 / 4;
+    object-fit:cover;
+    border-radius:15px;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.flyer-box img:hover{
+    transform:scale(1.05);
+}
+
+/* Modal */
+.modal{
+    display:none;
+    position:fixed;
+    z-index:999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.7);
+    backdrop-filter:blur(4px);
+}
+
+.modal-img{
+    display:block;
+    margin:auto;
+    margin-top:5%;
+    max-width:90%;
+    max-height:85%;
+    border-radius:15px;
+    animation:zoom .4s ease;
+}
+
+.close-btn{
+    position:absolute;
+    top:25px;
+    right:35px;
+    font-size:40px;
+    color:white;
+    cursor:pointer;
+}
+
+@keyframes zoom{
+    from{transform:scale(.7); opacity:0;}
+    to{transform:scale(1); opacity:1;}
+}
+        
         /* Media Queries untuk Responsif */
         @media (max-width: 768px) {
             header { 
@@ -515,6 +583,21 @@
         <a href="https://drive.google.com/drive/folders/1dU0EobCCq2ppAB-zgPm8eWxjiNZC0xc0?usp=sharing" class="cta-button scale-in" target="_blank">Petunjuk Teknis</a>
     </section>
 
+<!-- FLYER SECTION -->
+<section class="flyer-section">
+    <h2>Flyer Resmi FESTAVORA</h2>
+
+    <div class="flyer-box">
+        <img src="WhatsApp Image 2026-02-13 at 19.04.52.jpeg" alt="Flyer FESTAVORA" id="flyerImg">
+    </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="flyerModal">
+    <span class="close-btn" id="closeBtn">&times;</span>
+    <img class="modal-img" id="modalImg">
+</div>
+    
     <section id="kontak" class="fade-in">
         <h2>?? Hubungi Kami</h2>
         <div class="contact-info slide-right">
@@ -623,7 +706,27 @@
                 });
             });
         });
+        const flyer = document.getElementById("flyerImg");
+const modal = document.getElementById("flyerModal");
+const modalImg = document.getElementById("modalImg");
+const closeBtn = document.getElementById("closeBtn");
+
+flyer.onclick = () => {
+    modal.style.display = "block";
+    modalImg.src = flyer.src;
+}
+
+closeBtn.onclick = () => {
+    modal.style.display = "none";
+}
+
+modal.onclick = (e) => {
+    if(e.target === modal){
+        modal.style.display = "none";
+    }
+}
     </script>
 </body>
 
 </html>
+
