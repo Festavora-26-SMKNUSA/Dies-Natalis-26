@@ -21,6 +21,7 @@
 
         /* Pengaturan Dasar */
         body {
+            padding-top: 80px;
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
@@ -121,7 +122,7 @@
             cursor: pointer;
             flex-direction: column;
             justify-content: space-around;
-            width: 30px;
+            width: 40px;
             height: 25px;
             z-index: 1001;
             margin-left: 15px; /* Memberi sedikit jarak dari logo */
@@ -283,6 +284,30 @@
         .contact-info ul li strong {
             color: var(--color-primary);
         }
+        
+
+        #timeline {
+            background-color: #e0f7fa;
+        }
+        
+        #timeline h2 {
+            color: var(--color-primary);
+        }
+
+        .contact-info {
+            text-align: left;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 40px;
+            background-color: var(--color-text-light);
+            border-left: 2px solid var(--color-secondary);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(14, 13, 19, 0.986);
+        }
+
+        .contact-info ul li strong {
+            color: var(--color-primary);
+        }
 
         /* Footer */
         footer {
@@ -312,13 +337,12 @@
             align-items: center;
             gap: 40px;
             margin-top: 15px;
-            }
+        }
         .sponsor-logos .sponsor-item img{
     max-width: 80%;
     max-height: 80%;
     object-fit: contain;
 }
-
 
         .sponsor-logos div {
             width: 100px;
@@ -367,15 +391,46 @@
         .lomba-grid .lomba-item-link:nth-child(3) .slide-up.animated { transition-delay: 0.6s; }
 
         .flyer-section{
-    padding:90px 12%;
-    text-align:center;
+    padding:120px 12% 80px;
+    text-align:bottom;
     background:#f9f9f9;
 }
 
 .flyer-section h2{
-    color:#ff7a00;
-    margin-bottom:30px;
+    color:rgba(33, 172, 236, 0.973);
+    margin-bottom: 10px;
 }
+.glow-text {
+    font-size: 30px;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #1e90ff; /* biru utama */
+    
+    /* efek sinar */
+    text-shadow:
+        0 0 5px #6ec6ff,
+        0 0 10px #6ec6ff,
+        0 0 20px #1e90ff,
+        0 0 40px #1e90ff;
+}
+    /* efek mengkilat */
+    .glow-text {
+    background-color: rgba(255,255,255,0.2);
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 200%;
+    }
+}
+
 
 /* Flyer Card */
 .flyer-box{
@@ -421,7 +476,7 @@
 }
 
 .close-btn{
-    position:absolute;
+    position:flex;
     top:25px;
     right:35px;
     font-size:40px;
@@ -433,7 +488,7 @@
     from{transform:scale(.7); opacity:0;}
     to{transform:scale(1); opacity:1;}
 }
-        
+
         /* Media Queries untuk Responsif */
         @media (max-width: 768px) {
             header { 
@@ -563,7 +618,7 @@
                 </div>
             </a>
             
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeOeX37mHzuQzMUusSYCPNzLyiE3drsraGW9RcYboEo3M_0fw/viewform?usp=dialog" class="lomba-item-link">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeOeX37mHzuQzMUusSYCPNzLyiE3drsraGW9RcYboEo3M_0fw/viewform?usp=publish-editor" class="lomba-item-link">
                 <div class="lomba-item slide-up">
                     <h3>Lomba Cerdas Cermat SMP/MTS</h3>
                     <p>“Believe in knowledge, achieve greatness.”</p>
@@ -572,7 +627,7 @@
 
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSdB1Y8foIQhibFxOX1gWIMHOJp-6QUpz3Y5KdwUVfvtauKGmg/viewform?usp=dialog" class="lomba-item-link">
                 <div class="lomba-item slide-up">
-                    <h3>Volley Ball SMP/MTS</h3>
+                    <h3>Volly Ball SMP/MTS</h3>
                     <p>“One team. One goal. One victory.”</p>
                 </div>
             </a>
@@ -588,13 +643,13 @@
         <p>Klik tombol di bawah untuk melihat teknis perlombaan dan teknis pendaftaran</p>
         <a href="https://drive.google.com/drive/folders/1dU0EobCCq2ppAB-zgPm8eWxjiNZC0xc0?usp=sharing" class="cta-button scale-in" target="_blank">Petunjuk Teknis</a>
     </section>
-
-<!-- FLYER SECTION -->
-<section class="flyer-section">
-    <h2>Flyer Resmi FESTAVORA</h2>
+    <section id="lomba" class="fade-in">
+        <h2>"FESTIVAL OF SMKNUSA FLAVORS & CREATION"</h2>
+        <p>Informasi lebih lanjut silahkan klik Flyer dibawah ini.</p>
+      
 
     <div class="flyer-box">
-        <img src="WhatsApp Image 2026-02-13 at 19.04.52.jpeg" alt="Flyer FESTAVORA" id="flyerImg">
+        <img src="WhatsApp Image 2026-02-28 at 11.16.26.jpeg" alt="Flyer FESTAVORA" id="flyerImg">
     </div>
 </section>
 
@@ -603,7 +658,20 @@
     <span class="close-btn" id="closeBtn">&times;</span>
     <img class="modal-img" id="modalImg">
 </div>
-    
+
+    <section id="timeline" class="fade-in">
+        <h2>Timeline Perlombaan</h2>
+        <div class="contact-info slide-right">
+        
+                <li>Pendaftaran: 01 Maret 2026 - 24 April 2026</li>
+                <li>Technical Meeting: 25 April 2026</li>
+                <li>Pelaksanaan: 18 - 23 Mei 2026</li>
+                <li>Peak of Festavora: 13 Juni 2026</li>
+   </ul>
+            <p>Disclaimer: Ketika ada perubahan tanggal pelaksanaan maka akan diberitahukan di Grup Resmi.</p>
+        </div>
+    </section>
+
     <section id="kontak" class="fade-in">
         <h2>?? Hubungi Kami</h2>
         <div class="contact-info slide-right">
@@ -625,7 +693,7 @@
     
         <div class="sponsor-logos">
             <div class="sponsor-item">
-                <img src="IMG_7496.PNG" alt="Sponsor 1">
+                <img src="WhatsApp Image 2026-02-28 at 11.17.02.jpeg" alt="Sponsor 1">
             </div>
             <div class="sponsor-item">
                 <img src="logo wartabromo.jpg.jpeg" alt="Sponsor 2">
@@ -635,6 +703,9 @@
             </div>
             <div class="sponsor-item">
                 <img src="WhatsApp Image 2026-02-14 at 19.26.13.jpeg" alt="Sponsor 4">
+            </div>
+            <div class="sponsor-item">
+                <img src="IMG_4579.PNG" alt="Sponsor 5">
             </div>
         </div>
         
@@ -719,7 +790,8 @@
                 });
             });
         });
-        const flyer = document.getElementById("flyerImg");
+        
+const flyer = document.getElementById("flyerImg");
 const modal = document.getElementById("flyerModal");
 const modalImg = document.getElementById("modalImg");
 const closeBtn = document.getElementById("closeBtn");
@@ -738,9 +810,7 @@ modal.onclick = (e) => {
         modal.style.display = "none";
     }
 }
+
     </script>
 </body>
-
 </html>
-
-
